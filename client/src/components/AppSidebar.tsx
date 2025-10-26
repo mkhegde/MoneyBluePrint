@@ -9,13 +9,18 @@ import {
   SidebarMenuItem,
   SidebarHeader,
 } from "@/components/ui/sidebar";
-import { User, TrendingUp, Target, Shield, Brain, ListChecks } from "lucide-react";
+import { LayoutDashboard, User, TrendingUp, Target, Shield, Brain, ListChecks } from "lucide-react";
 import { useLocation } from "wouter";
 
 const menuItems = [
   {
-    title: "Profile Overview",
+    title: "All-in-One Summary",
     url: "/",
+    icon: LayoutDashboard,
+  },
+  {
+    title: "Profile Overview",
+    url: "/profile",
     icon: User,
   },
   {

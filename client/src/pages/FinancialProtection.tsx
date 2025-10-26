@@ -4,7 +4,11 @@ import { Progress } from "@/components/ui/progress";
 import { Shield, AlertCircle, CheckCircle2, XCircle } from "lucide-react";
 import { insuranceCoverage, emergencyFundData } from "@/lib/dummyData";
 
-export default function FinancialProtection() {
+type FinancialProtectionProps = {
+  showTitle?: boolean;
+};
+
+export default function FinancialProtection({ showTitle = true }: FinancialProtectionProps) {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Adequate":
@@ -33,12 +37,14 @@ export default function FinancialProtection() {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-4xl font-bold">Financial Protection</h1>
-        <p className="text-muted-foreground mt-2">
-          Insurance coverage and emergency preparedness
-        </p>
-      </div>
+      {showTitle && (
+        <div>
+          <h1 className="text-4xl font-bold">Financial Protection</h1>
+          <p className="text-muted-foreground mt-2">
+            Insurance coverage and emergency preparedness
+          </p>
+        </div>
+      )}
 
       <Card>
         <CardHeader>

@@ -4,15 +4,21 @@ import ProgressBar from "@/components/ProgressBar";
 import { Target, Calendar, TrendingUp } from "lucide-react";
 import { financialGoals, riskTolerance, lifestylePriorities } from "@/lib/dummyData";
 
-export default function QualitativeAnalysis() {
+type QualitativeAnalysisProps = {
+  showTitle?: boolean;
+};
+
+export default function QualitativeAnalysis({ showTitle = true }: QualitativeAnalysisProps) {
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-4xl font-bold">Qualitative Analysis</h1>
-        <p className="text-muted-foreground mt-2">
-          Your financial goals, risk profile, and lifestyle priorities
-        </p>
-      </div>
+      {showTitle && (
+        <div>
+          <h1 className="text-4xl font-bold">Qualitative Analysis</h1>
+          <p className="text-muted-foreground mt-2">
+            Your financial goals, risk profile, and lifestyle priorities
+          </p>
+        </div>
+      )}
 
       <Card>
         <CardHeader>

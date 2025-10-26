@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/AppSidebar";
 import ThemeToggle from "@/components/ThemeToggle";
+import FinancialBlueprintSummary from "@/pages/FinancialBlueprintSummary";
 import ProfileOverview from "@/pages/ProfileOverview";
 import QuantitativeAnalysis from "@/pages/QuantitativeAnalysis";
 import QualitativeAnalysis from "@/pages/QualitativeAnalysis";
@@ -17,7 +18,8 @@ import NotFound from "@/pages/not-found";
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={ProfileOverview} />
+      <Route path="/" component={FinancialBlueprintSummary} />
+      <Route path="/profile" component={ProfileOverview} />
       <Route path="/quantitative" component={QuantitativeAnalysis} />
       <Route path="/qualitative" component={QualitativeAnalysis} />
       <Route path="/protection" component={FinancialProtection} />

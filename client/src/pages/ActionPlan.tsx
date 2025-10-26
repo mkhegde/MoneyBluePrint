@@ -5,7 +5,11 @@ import { AlertCircle, Clock, TrendingUp } from "lucide-react";
 import { actionPlan } from "@/lib/dummyData";
 import { useState } from "react";
 
-export default function ActionPlan() {
+type ActionPlanProps = {
+  showTitle?: boolean;
+};
+
+export default function ActionPlan({ showTitle = true }: ActionPlanProps) {
   const [completedItems, setCompletedItems] = useState<number[]>([]);
 
   const toggleComplete = (id: number) => {
@@ -50,12 +54,14 @@ export default function ActionPlan() {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-4xl font-bold">Action Plan</h1>
-        <p className="text-muted-foreground mt-2">
-          Prioritized steps to achieve your financial goals
-        </p>
-      </div>
+      {showTitle && (
+        <div>
+          <h1 className="text-4xl font-bold">Action Plan</h1>
+          <p className="text-muted-foreground mt-2">
+            Prioritized steps to achieve your financial goals
+          </p>
+        </div>
+      )}
 
       <Card>
         <CardHeader>
