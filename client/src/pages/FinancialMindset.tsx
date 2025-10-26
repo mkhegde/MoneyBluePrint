@@ -3,7 +3,11 @@ import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Responsi
 import { mindsetScores } from "@/lib/dummyData";
 import { TrendingUp, TrendingDown, Minus } from "lucide-react";
 
-export default function FinancialMindset() {
+type FinancialMindsetProps = {
+  showTitle?: boolean;
+};
+
+export default function FinancialMindset({ showTitle = true }: FinancialMindsetProps) {
   const radarData = [
     { category: "Spending Habits", score: mindsetScores.spendingHabits, fullMark: 10 },
     { category: "Saving Discipline", score: mindsetScores.savingDiscipline, fullMark: 10 },
@@ -21,12 +25,14 @@ export default function FinancialMindset() {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-4xl font-bold">Financial Mindset</h1>
-        <p className="text-muted-foreground mt-2">
-          Assessment of your financial behaviors and attitudes
-        </p>
-      </div>
+      {showTitle && (
+        <div>
+          <h1 className="text-4xl font-bold">Financial Mindset</h1>
+          <p className="text-muted-foreground mt-2">
+            Assessment of your financial behaviors and attitudes
+          </p>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>

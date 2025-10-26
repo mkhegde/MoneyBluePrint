@@ -5,15 +5,21 @@ import StatCard from "@/components/StatCard";
 import { PoundSterling, TrendingUp, PiggyBank, Receipt, Users, GraduationCap, AlertCircle } from "lucide-react";
 import { profileData, dependantsData } from "@/lib/dummyData";
 
-export default function ProfileOverview() {
+type ProfileOverviewProps = {
+  showTitle?: boolean;
+};
+
+export default function ProfileOverview({ showTitle = true }: ProfileOverviewProps) {
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-4xl font-bold">Profile Overview</h1>
-        <p className="text-muted-foreground mt-2">
-          Your comprehensive financial snapshot
-        </p>
-      </div>
+      {showTitle && (
+        <div>
+          <h1 className="text-4xl font-bold">Profile Overview</h1>
+          <p className="text-muted-foreground mt-2">
+            Your comprehensive financial snapshot
+          </p>
+        </div>
+      )}
 
       <Card data-testid="card-profile-details">
         <CardContent className="p-8">

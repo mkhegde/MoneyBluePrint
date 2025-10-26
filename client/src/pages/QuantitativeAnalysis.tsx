@@ -11,6 +11,10 @@ import {
   specialLifeEvents,
 } from "@/lib/dummyData";
 
+type QuantitativeAnalysisProps = {
+  showTitle?: boolean;
+};
+
 const COLORS = [
   'hsl(var(--chart-1))',
   'hsl(var(--chart-2))',
@@ -19,15 +23,17 @@ const COLORS = [
   'hsl(var(--chart-5))',
 ];
 
-export default function QuantitativeAnalysis() {
+export default function QuantitativeAnalysis({ showTitle = true }: QuantitativeAnalysisProps) {
   return (
     <div className="space-y-8">
-      <div>
-        <h1 className="text-4xl font-bold">Quantitative Analysis</h1>
-        <p className="text-muted-foreground mt-2">
-          Detailed breakdown of your income, expenses, and savings
-        </p>
-      </div>
+      {showTitle && (
+        <div>
+          <h1 className="text-4xl font-bold">Quantitative Analysis</h1>
+          <p className="text-muted-foreground mt-2">
+            Detailed breakdown of your income, expenses, and savings
+          </p>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
